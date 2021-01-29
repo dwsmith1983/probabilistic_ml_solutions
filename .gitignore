@@ -435,3 +435,7 @@ cython_debug/
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+
+# OSX
+.DS_Store
+.DS_Store?
