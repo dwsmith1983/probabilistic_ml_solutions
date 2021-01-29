@@ -440,6 +440,9 @@ cython_debug/
 .DS_Store
 .DS_Store?
 
+# large folders
+**/figures
+
 # re sync gitignore
 # https://stackoverflow.com/questions/7075923/resync-git-repo-with-new-gitignore-file
 # git rm --cached `git ls-files -i --exclude-standard`
