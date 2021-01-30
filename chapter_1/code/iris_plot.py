@@ -1,8 +1,5 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import os
-import sklearn
 from sklearn.datasets import load_iris
 import seaborn as sns
 

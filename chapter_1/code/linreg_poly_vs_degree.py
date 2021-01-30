@@ -16,7 +16,12 @@ figdir = "../figures"
 
 
 def save_fig(fname):
-    if figdir: plt.savefig(os.path.join(figdir, fname))
+    if figdir:
+        plt.savefig(os.path.join(figdir, fname))
+
+
+def fun(w, x):
+    return w[0] * x + w[1] * np.square(x)
 
 
 def make_1dregression_data(n=21):
@@ -25,11 +30,10 @@ def make_1dregression_data(n=21):
     xtest = np.arange(0.0, 20, 0.1)
     sigma2 = 4
     w = np.array([-1.5, 1 / 9.])
-    fun = lambda x: w[0] * x + w[1] * np.square(x)
-    ytrain = fun(xtrain) + np.random.normal(0, 1, xtrain.shape) * \
-             np.sqrt(sigma2)
-    ytest = fun(xtest) + np.random.normal(0, 1, xtest.shape) * \
-            np.sqrt(sigma2)
+    ytrain = fun(w, xtrain) + np.random.normal(0, 1, xtrain.shape) * \
+        np.sqrt(sigma2)
+    ytest = fun(w, xtest) + np.random.normal(0, 1, xtest.shape) * \
+        np.sqrt(sigma2)
     return xtrain, ytrain, xtest, ytest
 
 
@@ -77,8 +81,8 @@ for deg in chosen_degs:
     ax.scatter(xtrain, ytrain)
     ax.plot(xtest, ytest_pred_stored[deg - 1])
     ax.set_ylim((-10, 15))
-    plt.title('degree {}'.format(deg))
-    save_fig('polyfitDegree{}.pdf'.format(deg))
+    plt.title(f'degree {deg}')
+    save_fig(f'polyfitDegree{deg}.pdf')
     plt.show()
 
 # Plot residuals
@@ -92,8 +96,8 @@ for deg in chosen_degs:
     ax.set_xlabel('x')
     ax.set_ylabel('residual')
     ax.set_ylim(-6, 6)
-    plt.title('degree {}. Predictions on the training set'.format(deg))
-    save_fig('polyfitDegree{}Residuals.pdf'.format(deg))
+    plt.title(f'degree {deg}. Predictions on the training set')
+    save_fig(f'polyfitDegree{deg}Residuals.pdf')
     plt.show()
 
 # Plot fit vs actual
@@ -113,6 +117,6 @@ for deg in chosen_degs:
         ax.set_xlabel('true y')
         ax.set_ylabel('predicted y')
         r2 = sklearn.metrics.r2_score(ytrue, ypred)
-        plt.title('degree {}. R2 on {} = {:0.3f}'.format(deg, dataset, r2))
-        save_fig('polyfitDegree{}FitVsActual{}.pdf'.format(deg, dataset))
+        plt.title(f'degree {deg}. R2 on {dataset} = {r2:0.3f}')
+        save_fig(f'polyfitDegree{deg}FitVsActual{dataset}.pdf')
         plt.show()
