@@ -165,6 +165,7 @@ class Graphing:
         # second axis).
         image = np.column_stack([hypothesis.get_extension_indication() for hypothesis in hypotheses])
 
+        figure = plt.figure()
         plt.gray()
         plt.xticks([i for i in range(len(hypotheses))], [hypothesis.name for hypothesis in hypotheses],
                    rotation='vertical')
@@ -174,7 +175,7 @@ class Graphing:
         plt.imshow(image, aspect='auto', interpolation='none', origin='lower')
 
         plt.tight_layout()
-        # save_fig(filename)
+        save_fig(filename)
         # plt.savefig(f'../figures/{filename}')
 
         # Don't block, continue to show the next figure.
@@ -182,7 +183,7 @@ class Graphing:
 
     @staticmethod
     def plot_prior_lik_post(data, hypotheses, prior, likelihood, posterior, filename):
-        plt.figure(figsize=(12, 10))
+        figure = plt.figure(figsize=(12, 10))
         plt.suptitle(f"data = {','.join([str(x) for x in data])}", fontsize=24, x=0.56, y=1.03)
 
         # sub-plot title y-alignment
@@ -225,7 +226,7 @@ class Graphing:
             labelleft=False)
 
         plt.tight_layout()
-        # save_fig(filename)
+        save_fig(filename)
         # plt.savefig(f'../figures/{filename}')
 
         # Don't block, continue to show the next figure.
@@ -322,7 +323,7 @@ class Graphing:
         axes[0, 1].axis('off')
 
         plt.tight_layout()
-        # save_fig(filename)
+        save_fig(filename)
         # plt.savefig(f'../figures/{filename}')
         plt.show()
 
