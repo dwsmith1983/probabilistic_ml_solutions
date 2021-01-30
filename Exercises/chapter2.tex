@@ -10,4 +10,41 @@
 	given that you have the disease is \(0.99\), as is the probability of testing negative given that you dont
 	have the disease). The good news is that this rare disease, striking only one in \(10,000\) people.
 	What are the chances that you actually have the disease?
+	\par\smallskip
+	Let \(p(Y = 0\mid H = 0)\) be the true negative rate and \(p(Y = 1\mid H = 1)\) be the true positive rate.
+	Then the probability matrix will be given by \cref{ch1_ex1}.
+	\begin{table}
+	\centering
+		\begin{tabular}{l | c c}
+			& Y = 0 & Y = 1\\ \hline
+			H = 0 & 0.99 & 0.01\\
+			H = 1 & 0.01 & 0.99
+		\end{tabular}
+		\caption{The probability matrix for the given rare disease.}
+		\label{ch1_ex1}
+	\end{table}
+	The probability of the prevalence of the disease is \(p(H = 1) = 1 / 10000\) for the population. The 
+	probability that we are infected is
+	\begin{align}
+		p(H = 1\mid Y = 1) 
+		&= \frac{p(Y = 1\mid H = 1) p(H = 1)}{p(Y = 1\mid H = 1) p(H = 1) + p(Y = 1\mid H = 0) p(H = 0)}
+		\notag\\
+		&= \frac{0.99\cdot 0.0001}{0.99\cdot 0.0001 + 0.01 \cdot (1 - 0.0001)}\notag\\
+		&= 0.0098\text{ or } 0.98\%\notag
+	\end{align}
+\item Legal reasoning
+	\par\smallskip
+	Suppose a crime has been committed. Blood is found at the scene for which there is no innocent explanation.
+	It is of a type which is present in \(1\%\) of the population.
+	\begin{exercise}
+		\item
+			The prosecutor claims: "There is a \(1\%\) chance that the defendant would have the crime blood type if he
+			were innocent. Thus there is a \(99\%\) chance he is guilty." This is known as the prosecutor's fallacy.
+			What is wrong with this argument?
+		\item
+			The defender claims: "The crime occurred in a city of \(800,000\) people. The blood type would found in
+			approximately \(8,000\) people. The evidence has provided a probability of just \(1\) in \(8,000\) that the
+			defendant is guilty, and thus has no relevance." This is known as the defender's fallacy. 
+			What is wrong with this argument?
+	\end{exercise}
 \end{exercise}
