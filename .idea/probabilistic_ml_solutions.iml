@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/chapter_1/figures" />
       <excludeFolder url="file://$MODULE_DIR$/chapter_2/figures" />
+      <excludeFolder url="file://$MODULE_DIR$/chapter_3/figures" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

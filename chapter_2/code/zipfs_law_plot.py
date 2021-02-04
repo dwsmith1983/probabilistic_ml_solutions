@@ -84,7 +84,7 @@ x = np.arange(c, len(wordcounts))  # rank
 N = np.sum(wordcounts)
 kappa = 0.1
 a = -1
-y = kappa*np.power(x, a) * N  # predicted frequencey
+y = kappa * np.power(x, a) * N  # predicted frequencey
 plt.loglog(x, y, label='linear prediction')
 plt.legend()
 save_fig('timemachine-zipf-1.pdf')
