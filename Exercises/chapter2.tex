@@ -90,13 +90,25 @@
 	\item
 		Suppose I ask him whether he has any boys, and he says yes. What is the probability that one child is a 
 		girl?
+		\par\smallskip
+		The event space is \(\{(B, B), (G, G), (B,G), (G, B)\}\) and the sample space is 
+		 \(\{(B, B), (B,G), (G, B)\}\). The probability that one child is a girl given that he has at least \(1\) boy is
+		 \(2 / 3\). We can also construct with Baye's Theorem as follows:
+		 \begin{align*}
+		 P(B\mid G) &= \frac{P(G\mid B)P(G)}{P(G\mid B)P(G) + P(B\mid B)P(B)}\\
+		 &= \frac{1 / 2\cdot 1 / 2}{1 / 2\cdot 1 / 2 + 1 / 4\cdot 1 / 2}\\
+		 &= \frac{1}{4}\frac{8}{3}\\
+		 &= \frac{2}{3}
+		 \end{align*}
 	\item
 		Suppose instead that I happen to see one of his children run by, and it is a boy. What is the probability that
 		the other child is a girl?
+		\par\smallskip
+		The probability of a given child being a boy or girl is \(1 / 2\).
 	\end{exercise}
 \item Deriving the posterior predictive density for the healthy levels game
 	\par\smallskip
-	W will first consider one-dimensional "rectangles" (i.e., lines); since the dimensions are independent, we can
+	We will first consider one-dimensional "rectangles" (i.e., lines); since the dimensions are independent, we can
 	easily generalize to 2d.
 	\par\smallskip
 	For convenience, we will follow the notation of Josh Tenenbaum's Ph.D. thesis. In particular, let \(h = \theta\) be
@@ -107,7 +119,7 @@
 	\par\smallskip
 	The posterior predictive is given by \(p(y\mid\mathcal{D}) = p(y\mid\mathcal{D}) \ p(\mathcal{D})\), where
 	\begin{align}
-		p(\mathcal{D}) &= \int_{h\in\mathcal{H}}p(h)p(\mathcal{D}\mid h)dh\\
+		p(\mathcal{D}) &= \int_{h\in\mathcal{H}}p(h)p(\mathcal{D}\mid h)dh\notag\\
 		&= \int_{h\in\mathcal{H_{\mathcal{D}}}}\frac{p(h)}{\lvert h\rvert^N}dh\label{ch2_eq1}
 	\end{align}
 	where we used the fact that \(p(\mathcal{D}\mid h) = 1 / \lvert h\rvert^N\) if \(h\in\mathcal{H_{\mathcal{D}}}\)
