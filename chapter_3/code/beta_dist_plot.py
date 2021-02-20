@@ -1,8 +1,8 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from pyprobml_utils import save_fig
+import numpy as np
 from scipy.stats import beta
 
+from pyprobml_utils import save_fig
 
 x = np.linspace(0, 1, 100)
 aa = [0.1, 1., 2, 2., 8.]
